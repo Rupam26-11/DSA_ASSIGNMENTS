@@ -1,7 +1,4 @@
-// Lower triangular Matrix.  
-//i>j
-//Tri-diagonal Matrix.  
-//Logic used is i=j or i-j modulus=1
+
 #include<iostream>
 using namespace std;
 int main()
@@ -30,3 +27,4 @@ for(int i=0;i<n;i++)
 	cout<<endl;
 }
 }
+
