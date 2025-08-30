@@ -1,18 +1,29 @@
-#include <iostream>
+
+#include<iostream>
 using namespace std;
-int main() {
-    int n;
-    cin>>n;
-    int size=n*(n+1)/2;
-    int a[size],k=0;
-    for(int i=0;i<n;i++) {
-        for(int j=i;j<n;j++) {
-            cin>>a[k++];
-        }
-    }
-    int r,c;
-    cin>>r>>c;
-    if(r<=c) cout<<a[(r-1)*n-(r-2)*(r-1)/2+c-r];
-    else cout<<0;
-    return 0;
+int main()
+{
+int n;
+cout<<"Enter the order of matrix";
+cin>>n;
+int a[50];
+cout<<"enter the elements";
+int k=0;
+for(int i=0;i<n*(n+1)/2;i++)
+{
+	cin>>a[i];
+	}	
+for(int i=0;i<n;i++)
+{
+	for(int j=0;j<n;j++)
+	{	if(i==j||i<j)
+		{cout<<a[k]<<" ";
+		k++;}
+		else
+		{
+			cout<<"0 ";
+		}
+	}
+	cout<<endl;
+}
 }
