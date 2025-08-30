@@ -1,16 +1,29 @@
-#include <iostream>
+
+#include<iostream>
 using namespace std;
-int main() {
-    int n;
-    cin>>n;
-    int size=3*n-2;
-    int a[size];
-    for(int i=0;i<size;i++) cin>>a[i];
-    int r,c;
-    cin>>r>>c;
-    if(r-c==0) cout<<a[r-1];
-    else if(r-c==1) cout<<a[n-1+r-1];
-    else if(c-r==1) cout<<a[2*n-1+r-1];
-    else cout<<0;
-    return 0;
+int main()
+{
+int n;
+cout<<"Enter the order of matrix";
+cin>>n;
+int a[50];
+cout<<"enter the elements";
+int k=0;
+for(int i=0;i<(3*n-2);i++)
+{
+	cin>>a[i];
+	}	
+for(int i=0;i<n;i++)
+{
+	for(int j=0;j<n;j++)
+	{	if(i==j||i-j==1||i-j==-1)
+		{cout<<a[k]<<" ";
+		k++;}
+		else
+		{
+			cout<<"0 ";
+		}
+	}
+	cout<<endl;
+}
 }
