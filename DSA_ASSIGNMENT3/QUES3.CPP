@@ -1,47 +1,53 @@
+
 #include <iostream>
+#include <string>
 using namespace std;
+void push(char st[], int &top, char ch)
+ {
+    top=top+1;
+    st[top] = ch;
+}
+char pop(char st[], int &top)
+ {
+    char ch = st[top];
+    top=top-1;
+    return ch;
+}
+int balanced(string a) {
+    char st[100];
+    int top = -1;
+    for (int i=0;i<a.length();i++) 
+	{
+        char ch=a[i];
+        if (ch=='(' || ch=='{' || ch=='[') 
+		{
+            push(st,top,ch);
+        }
+		 else if (ch==')' || ch=='}' || ch==']')
+		  {
+            if (top == -1)
+			 return 0;
+            char max= pop(st, top);
+            if ((ch==')' && max!='(') ||
+                (ch=='}' && max!='{') ||
+                (ch==']' && max!='[')) {
+                return 0;
+            }
+        }
+    }
+    return top == -1;
+}
 
 int main() {
-    char exp[100];
-    cout << "Enter an expression: ";
-    cin >> exp;
-
-    char stack[100];
-    int top = -1;
-
-    int i = 0;
-    bool balanced = true;
-
-    while (exp[i] != '\0') {
-        char ch = exp[i];
-
-        if (ch == '(' || ch == '{' || ch == '[') {
-            top++;
-            stack[top] = ch;
-        }
-        else if (ch == ')' || ch == '}' || ch == ']') {
-            if (top == -1) {
-                balanced = false;
-                break;
-            }
-            char last = stack[top];
-            top--;
-            if ((ch == ')' && last != '(') ||
-                (ch == '}' && last != '{') ||
-                (ch == ']' && last != '[')) {
-                balanced = false;
-                break;
-            }
-        }
-        i++;
+    string name;
+    cout<<"Enter the brackets";
+    cin >>name;
+    if (balanced(name)==1)
+    {
+        cout<<"Balanced";
     }
-
-    if (top != -1) balanced = false;
-
-    if (balanced)
-        cout << "Balanced Expression\n";
     else
-        cout << "Not Balanced\n";
-
-    return 0;
+    {
+	    cout<<"Not Balanced";
+	}
 }
