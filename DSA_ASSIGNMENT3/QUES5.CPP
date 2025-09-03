@@ -50,8 +50,9 @@ int Postfix(string exp)
 }
 
 int main() {
-    string postfix = "234+*6-"; 
+    string postfix = "456+*6-"; 
     cout << "Postfix Expression " <<postfix << endl;
     cout << "Evaluation Result " <<Postfix(postfix) << endl;
     return 0;
 }
+
