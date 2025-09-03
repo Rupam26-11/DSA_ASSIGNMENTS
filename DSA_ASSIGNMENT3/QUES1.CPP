@@ -6,18 +6,18 @@ void push(int &top,int st[],int n)
 cout<<"Enter number of  elements u want to insert in the stack "<<endl;
 	int p;
 	cin>>p;
-	if(p>n)
+	if(p>n-top-1)
 	{
 		cout<<"invalid";
-		
 	}
 	else if(top==n-1)
 	{
 		cout<<"not possible";
 	} 
 	else
-	{	for(int i=0;i<p;i++)
-	{	int d=0;
+	{	
+      for(int i=0;i<p;i++){
+		int d=0;
 		top=top+1;
 		cout<<"Enter the element "<<endl;
 		cin>>d;
@@ -48,10 +48,7 @@ void isfull(int &top,int st[],int n)
 		cout<<"Stack Overflow";
 		
 	}
-	else 
-	{
-		cout<<"You can enter"<<n-top<<"Elements"<<endl;
-	}
+
 }
 void isempty(int &top,int st[],int n)
 {
@@ -83,10 +80,10 @@ int main()
 	int top=-1;
 	while (top>=-1)
 	{
-		cout<<"Here's your menu for performing operations"<<endl;
-		cout<<"Enter the number of operation u want to perform"<<endl;
+		cout<<"MENU"<<endl;
+		
 		cout<<"1. Push"<<endl;
-		cout<<"2. Pop i.e. delete elements from your stack"<<endl;
+		cout<<"2. Pop "<<endl;
 		cout<<"3. check if stack is full"<<endl;
 		cout<<"4.check if stack is empty"<<endl;
 		cout<<"5.check the top most element"<<endl;
@@ -95,20 +92,27 @@ int main()
 		int ch;
 		cin>>ch;
 		if(ch==1)
-			{	push(top,stack,n);	}
-	else if(ch==2)
-			{	pop(top,stack,n); }
+			{	
+              push(top,stack,n);	}
+	    else if(ch==2)
+			{
+              pop(top,stack,n); }
 		else if(ch==3)
-			{	isfull(top,stack,n); }
+			{
+               isfull(top,stack,n); }
 		else if(ch==4)
-			{	isempty(top,stack,n); }
+			{	 
+                  isempty(top,stack,n); }
 			else if(ch==5)
-		{	 peek(top,stack,n);}
+		{	  
+                 peek(top,stack,n);}
 			else if(ch==6)
-		{	display(top,stack,n); }
+		{	
+                display(top,stack,n); }
 		else if(ch==7)
 		{
 			break;
 		}
 	}
 }
+
