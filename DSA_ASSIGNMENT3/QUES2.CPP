@@ -1,27 +1,39 @@
 #include <iostream>
+#include <string>
 using namespace std;
 
-int main() {
-    char str[100];
-    cout << "Enter a string: ";
-    cin >> str;
+void push(int &top, char ch, char st[], int size) 
+{
+    if (top < size - 1) {
+        st[++top] = ch;
+    } else {
+        cout << "Stack Overflow! Cannot push " << ch << endl;
+    }
+}
 
-    char stack[100];
+char pull(int &top, char st[]) 
+{
+    if (top >= 0) {
+        return st[top--];
+    } else {
+        return '\0';
+    }
+}
+
+int main() {
+    string name = "Datastructures";
+    char st[100];
     int top = -1;
 
-    int i = 0;
-    while (str[i] != '\0') {
-        top++;
-        stack[top] = str[i];
-        i++;
+    for (int i = 0; i < name.length(); i++) {
+        push(top, name[i], st, 100);
     }
 
-    cout << "Reversed string: ";
-    while (top != -1) {
-        cout << stack[top];
-        top--;
+    string reversed = "";
+    for (int i = 0; i < name.length(); i++) {
+        reversed += pull(top, st);
     }
-    cout << endl;
 
-    return 0;
+    cout << "Initial string: " << name << endl;
+    cout << "Reversed string: " << reversed << endl;
 }
