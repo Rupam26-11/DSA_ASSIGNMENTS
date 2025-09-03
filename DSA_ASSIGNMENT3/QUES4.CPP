@@ -35,7 +35,7 @@ int main()
         char c=check[i];
         if (c>='0'&&c<='9')
 		 {
-            output=output+c;
+            output=output+c;//CONCATANATE 
 }
         else if (c=='(')
 		{
@@ -43,11 +43,11 @@ int main()
         }
         else if (c==')')
 		{
-            while (top!=-1&&st[top]!='(')
+         while (top!=-1&&st[top]!='(')
 			{
                 output=output+pop(top, st);
             }
-            if (top!=-1 && st[top]=='(')
+         if (top!=-1 && st[top]=='(')
 			{
                 pop(top,st); 
             }
@@ -60,7 +60,7 @@ int main()
 					 break;
                 output=output+pop(top, st);
             }
-            push(top,st,c);
+         push(top,st,c);
         }
     }
     while (top!=-1) 
@@ -70,3 +70,4 @@ int main()
 	cout<<"Postfix "<<output<< endl;
     return 0;
 }
+
